@@ -1,0 +1,21 @@
+name: learning-dapr
+
+extensions:
+
+  # Configuration for dapr goes here.
+  - name: dapr
+    log-level: debug
+    components-path: ./dapr/components
+
+# Services to run go here.
+services:
+  
+  # The name will be used as the app-id. For a .NET project, Tye only needs the path to the project file.
+  - name: serviceA
+    project: ServiceA/ServiceA.csproj
+    bindings:
+      - port: 52729
+  - name: serviceB
+    project: ServiceB/ServiceB.csproj
+    bindings:
+      - port: 52730
